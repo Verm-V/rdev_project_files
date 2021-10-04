@@ -1,0 +1,1570 @@
+{
+	"version": "1.0",
+	"settings": {
+		"project": {
+			"title": "Тулбар и контекстное меню"
+		}
+	},
+	"security": {
+		"appGroup": {
+			"name": "Toolbar"
+		},
+		"groups": [
+			{
+				"name": "Administrators",
+				"description": "Администраторы",
+				"parentGroup": "Toolbar"
+			},
+			{
+				"name": "Users",
+				"description": "Пользователи",
+				"parentGroup": "Toolbar"
+			}
+		],
+		"users": [
+			{
+				"name": "Administrator",
+				"description": "Администратор",
+				"login": "admin",
+				"password": "admin",
+				"email": "admin@mfc.ru",
+				"parentGroups": [
+					"Administrators"
+				]
+			},
+			{
+				"name": "User1",
+				"description": "User1",
+				"login": "user1",
+				"password": "user1",
+				"email": "user1@mfc.ru",
+				"parentGroups": [
+					"Users"
+				]
+			}
+		],
+		"rules": [
+			{
+				"groups": [
+					"Administrators"
+				],
+				"objects": [
+					"mainMenu",
+					"formsContextMenu",
+					"test_toolbar",
+					"without_toolbar_1",
+					"without_toolbar_2",
+					"methodContextMenu",
+					"methodContextMenu2",
+					"methodContextMenu3",
+					"pluginsContextMenu",
+					"on_without_toolbar",
+					"onAddContextMenu",
+					"rsmev___participants",
+					"rdev___events_log"
+				],
+				"access": {
+					"read": "true",
+					"write": "true",
+					"create": "true",
+					"delete": "true"
+				}
+			},
+			{
+				"groups": [
+					"Users"
+				],
+				"objects": [
+					"mainMenu",
+					"formsContextMenu",
+					"test_toolbar",
+					"without_toolbar_1",
+					"without_toolbar_2",
+					"methodContextMenu",
+					"methodContextMenu2",
+					"methodContextMenu3",
+					"pluginsContextMenu",
+					"on_without_toolbar",
+					"onAddContextMenu",
+					"rdev___events_log"
+				],
+				"access": {
+					"read": "true",
+					"write": "true",
+					"create": "true",
+					"delete": "true"
+				}
+			}
+		]
+	},
+	"menus": [
+		{
+			"name": "mainMenu",
+			"title": "Главное меню",
+			"hint": "Главное меню",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "Menu1_default",
+					"title": "Таблица без тулбара",
+					"hint": "Таблица 1 без тулбара",
+					"typeMenuItem": "Table",
+					"object": "without_toolbar_1"
+				},
+				{
+					"name": "Таблица без тулбара + onAdd/open",
+					"title": "Таблица без тулбара + onAdd/open",
+					"hint": "Таблица без тулбара + onAdd/open",
+					"typeMenuItem": "Table",
+					"object": "without_toolbar_2"
+				},
+				{
+					"name": "Menu3_toolbar",
+					"title": "Таблица с тулбаром",
+					"hint": "Тулбар",
+					"typeMenuItem": "Table",
+					"object": "test_toolbar"
+				}
+			]
+		},
+
+		// Контекстное меню для открытия форм
+		{
+			"name": "formsContextMenu",
+			"title": "Контекстное меню для открытия форм",
+			"hint": "Контекстное меню для открытия форм",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "FormOpenTest",
+					"title": "Открыть Add Form",
+					"typeMenuItem": "Form",
+					"object": "65a7823b-ebe8-4426-a9bf-2a9ad945eb34"
+				},
+				{
+					"name": "FormUpdate",
+					"title": "Открыть Update Form",
+					"typeMenuItem": "Form",
+					"object": "42746473-544a-44bb-9bf5-5b936c424766"
+				},
+				{
+					"name": "prop_action_object_grid_table_onadd",
+					"title": "Открыть Тестовый метод",
+					"typeMenuItem": "Method",
+					"object": "prop_action_object_grid_table_onadd"
+				},
+				{
+					"name": "prop_action_object_grid_table_update",
+					"title": "Открыть Update Method",
+					"typeMenuItem": "Method",
+					"object": "prop_action_object_grid_table_update"
+				},
+				{
+					"name": "prop_action_object_grid_table_delete",
+					"title": "Открыть Delete Method",
+					"typeMenuItem": "Method",
+					"object": "prop_action_object_grid_table_delete"
+				}
+			]
+		},
+
+		// Контекстное меню для плагинов
+		{
+			"name": "pluginsContextMenu",
+			"title": "Контекстное меню для плагинов",
+			"hint": "Контекстное меню для плагинов",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "plugin1",
+					"title": "Плагин 1",
+					"typeMenuItem": "Plugin",
+					"object": "test_plugin"
+				},
+				{
+					"name": "plugin2",
+					"title": "Плагин 2",
+					"typeMenuItem": "Plugin",
+					"object": "test_plugin2"
+				},
+				{
+					"name": "plugin3",
+					"title": "Плагин 3",
+					"typeMenuItem": "Plugin",
+					"object": "test_plugin3"
+				}
+
+			]
+		},
+
+		// Контекстное меню для методов_1
+		{
+			"name": "methodContextMenu",
+			"title": "Контекстное меню (без тулбара)",
+			"hint": "Контекстное меню (без тулбара)",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "testSuccess",
+					"title": "Успех",
+					"typeMenuItem": "Method",
+					"object": "test_success"
+				},
+				{
+					"name": "testError",
+					"title": "Ошибка",
+					"typeMenuItem": "Method",
+					"object": "test_error"
+				},
+				{
+					"name": "addMethod",
+					"title": "Добавить запись",
+					"typeMenuItem": "Method",
+					"object": "add_method"
+				},
+				{
+					"name": "updMethod",
+					"title": "Обновление записи",
+					"typeMenuItem": "Method",
+					"object": "update_method"
+				},
+				{
+					"name": "delMethod",
+					"title": "Удаление записи",
+					"typeMenuItem": "Method",
+					"object": "delete_method"
+				},
+				{
+					"name": "delFile",
+					"title": "Удаление файла",
+					"typeMenuItem": "Method",
+					"object": "delete_file_1"
+				},
+				{
+					"name": "signMethod",
+					"title": "Подписание файлов",
+					"typeMenuItem": "Method",
+					"object": "test_method_for_sign_files_in_field_1"
+				},
+				{
+					"name": "workflowMethod",
+					"title": "Бизнес-процесс 1",
+					"typeMenuItem": "Method",
+					"object": "test_workflow1"
+				}
+			]
+		},
+
+		// Контекстное меню для методов_2
+		{
+			"name": "methodContextMenu2",
+			"title": "Контекстное меню (без тулбара)",
+			"hint": "Контекстное меню (без тулбара)",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "testSuccess",
+					"title": "Успех",
+					"typeMenuItem": "Method",
+					"object": "test_success"
+				},
+				{
+					"name": "testError",
+					"title": "Ошибка",
+					"typeMenuItem": "Method",
+					"object": "test_error"
+				},
+				{
+					"name": "addMethod2",
+					"title": "Добавить запись",
+					"typeMenuItem": "Method",
+					"object": "add_method_2"
+				},
+				{
+					"name": "updMethod2",
+					"title": "Обновление записи",
+					"typeMenuItem": "Method",
+					"object": "update_method_2"
+				},
+				{
+					"name": "delMethod2",
+					"title": "Удаление записи",
+					"typeMenuItem": "Method",
+					"object": "delete_method_2"
+				},
+				{
+					"name": "signMethod2",
+					"title": "Подписание файлов",
+					"typeMenuItem": "Method",
+					"object": "test_method_for_sign_files_in_field_2"
+				},
+				{
+					"name": "workflowMethod",
+					"title": "Бизнес-процесс 2",
+					"typeMenuItem": "Method",
+					"object": "test_workflow2"
+				},
+				{
+					"name": "delFile",
+					"title": "Удаление файла",
+					"typeMenuItem": "Method",
+					"object": "delete_file_2"
+				}
+			]
+		},
+
+		// Контекстное меню для методов_3
+		{
+			"name": "methodContextMenu3",
+			"title": "Контекстное меню (без тулбара)",
+			"hint": "Контекстное меню (без тулбара)",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "testSuccess",
+					"title": "Успех",
+					"typeMenuItem": "Method",
+					"object": "test_success"
+				},
+				{
+					"name": "testError",
+					"title": "Ошибка",
+					"typeMenuItem": "Method",
+					"object": "test_error"
+				},
+				{
+					"name": "addMethod3",
+					"title": "Добавить запись",
+					"typeMenuItem": "Method",
+					"object": "table_grid_add"
+				},
+				{
+					"name": "updMethod3",
+					"title": "Обновление записи",
+					"typeMenuItem": "Method",
+					"object": "update_method_3"
+				},
+				{
+					"name": "delMethod3",
+					"title": "Удаление записи",
+					"typeMenuItem": "Method",
+					"object": "delete_method_3"
+				},
+				{
+					"name": "signMethod3",
+					"title": "Подписание файлов",
+					"typeMenuItem": "Method",
+					"object": "test_method_for_sign_files_in_field_3"
+				},
+				{
+					"name": "workflowMethod",
+					"title": "Бизнес-процесс 3",
+					"typeMenuItem": "Method",
+					"object": "test_workflow3"
+				},
+				{
+					"name": "delFile",
+					"title": "Удаление файла",
+					"typeMenuItem": "Method",
+					"object": "delete_file_3"
+				},
+				{
+					"name": "tableAdd",
+					"title": "Добавление файла в таблицу",
+					"typeMenuItem": "Method",
+					"object": "table_grid_add"
+				}
+			]
+		},
+
+		// Контекстное меню для переопределения кнопки Добавить
+		{
+			"name": "onAddContextMenu",
+			"title": "Контекстное меню для переопределения кнопки Добавить",
+			"hint": "Контекстное меню для переопределения кнопки Добавить",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "testOnAdd",
+					"title": "testOnAdd",
+					"typeMenuItem": "Method",
+					"object": "onAdd"
+				}
+			]
+		}
+	],
+
+	// РАЗДЕЛ С ТАБЛИЦАМИ
+	"types": [
+		{
+			"name": "enumTy",
+			"type": "SysENUM",
+			"displayName": "Тип утилизации",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Утилизация"
+				},
+				{
+					"id": 2,
+					"value": "Расформирование"
+				},
+				{
+					"id": 3,
+					"value": "Утрата"
+				}
+			]
+		}
+	],
+	"tables": [
+
+		// Таблица без тулбара 1
+		{
+			"name": "without_toolbar_1",
+			"displayName": "Проверка основного функционала",
+			"description": "Действия по системным кнопкам; вызов методов; вызов плагинов",
+			"fields": [
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код без тулбара"
+				},
+				{
+					"name": "test_num",
+					"type": "SysInt",
+					"displayName": "Число без тулбара"
+				},
+				{
+					"name": "test_date",
+					"type": "SysDate",
+					"displayName": "Дата без тулбара"
+				},
+				{
+					"name": "test_file",
+					"type": "SysFile",
+					"displayName": "Файл"
+				},
+				{
+					"name": "test_enum",
+					"type": "enumTy",
+					"displayName": "Enum"
+				}
+			],
+			"advancedSearch": {
+				"visible": false,
+				"searchFields": [
+					{
+						"name": "reccode",
+						"default": "a_2"
+					},
+					{
+						"name": "test_num"
+					},
+					{
+						"name": "reccode",
+						"default": "a_3"
+					},
+					{
+						"name": "another_field"
+					}
+				]
+			},
+			"dfButtons": [
+				{
+					"name": "Add",
+					"displayName": "Добавить",
+					"object": "65a7823b-ebe8-4426-a9bf-2a9ad945eb34"
+				}
+			],
+			"menus": [
+				"methodContextMenu",
+				"pluginsContextMenu"
+			],
+			"methods": [
+				{
+					"name": "test_success",
+					"displayName": "Успех",
+					"fields": [],
+					"static": "true"
+				},
+				{
+					"name": "test_error",
+					"displayName": "Ошибка",
+					"fields": []
+				},
+				{
+					"name": "add_method",
+					"displayName": "Добавить запись",
+					"static": "true",
+					"fields": [
+						{
+							"name": "reccode",
+							"type": "SysString",
+							"displayName": "Код без тулбара"
+						},
+						{
+							"name": "test_num",
+							"type": "SysInt",
+							"displayName": "Число без тулбара"
+						},
+						{
+							"name": "test_date",
+							"type": "SysDate",
+							"displayName": "Дата без тулбара"
+						}
+					]
+				},
+				{
+					"name": "update_method",
+					"displayName": "Обновление записи",
+					"static": "true",
+					"fields": [
+						{
+							"name": "reccode",
+							"type": "SysString",
+							"displayName": "Код без тулбара"
+						},
+						{
+							"name": "test_num",
+							"type": "SysInt",
+							"displayName": "Число без тулбара"
+						},
+						{
+							"name": "test_date",
+							"type": "SysDate",
+							"displayName": "Дата без тулбара"
+						}
+					]
+				},
+				{
+					"name": "delete_method",
+					"displayName": "Удаление записи",
+					"static": "true",
+					"fields": []
+				},
+				// {
+				// 	"name": "file_download",
+				// 	"displayName": "Скачивание файла",
+				// 	"fields": []
+				// },
+				{
+					"name": "test_method_for_sign_files_in_field_1",
+					"displayName": "Подписание файла",
+					"isPacketSigned": true,
+					"static": "true",
+					"fields": [],
+					"isEnabled": "function() { return true; }"
+				},
+				{
+					"name": "delete_file_1",
+					"displayName": "Удаление файла",
+					"static": "true",
+					"fields": []
+				},
+				{
+					"name": "test_workflow1",
+					"displayName": "Бизнес процесс 1 (подписание в середине)",
+					"isEnabled": "function() { return true }",
+					"fields": [],
+					"static": true,
+					"workflow": [
+						{
+							"name": "generate_files_1",
+							"methodSrc": "server"
+						},
+						{
+							"name": "sign_files",
+							"methodSrc": "client"
+						},
+						{
+							"name": "send_data_file",
+							"methodSrc": "server",
+							"setResultStep": 1
+						},
+						{
+							"name": "sign_files",
+							"methodSrc": "client",
+							"setResultStep": 1
+						}
+					]
+				}
+				// {
+				// 	"name": "test_workflow2",
+				// 	"displayName": "Бизнес-процесс2",
+				// 	"fields": []
+				// }
+			]
+		},
+
+		// Таблица без тулбара 2 (onAdd onOpen)
+		{
+			"name": "without_toolbar_2",
+			"displayName": "Проверка основного функционала",
+			"description": "Действия по системным кнопкам; вызов методов; вызов плагинов",
+			"fields": [
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код без тулбара"
+				},
+				{
+					"name": "test_num",
+					"type": "SysInt",
+					"displayName": "Число без тулбара"
+				},
+				{
+					"name": "test_date",
+					"type": "SysDate",
+					"displayName": "Дата без тулбара"
+				},
+				{
+					"name": "test_file",
+					"type": "SysFile",
+					"displayName": "Файл"
+				}
+			],
+			"menus": [
+				"methodContextMenu2",
+				"onAddContextMenu"
+			],
+			"tableView": [
+				{
+					//"Table": уже указано
+					"User": "admin",
+					//"Group" либо пользователь, либо группа(при указании сразу двух, приоритет будет за группой. Пользователь будет проигнорирован)
+					"Columns": [
+						{
+							"Name": "recid",
+							"Width": "10.899%",
+							"VisibleIndex": 0
+						},
+						{
+							"Name": "reccode",
+							"Width": "50%",
+							"VisibleIndex": 1
+						},
+						{
+							"Name": "test_num",
+							"Width": "100px",
+							"VisibleIndex": 2
+						}
+					]
+				},
+				{
+					//"Table": уже указано
+					//"User": "admin",
+					//"User": "admin", либо пользователь, либо группа(при указании сразу двух, приоритет будет за группой. Пользователь будет проигнорирован)
+
+					"Group": "Administrators",
+					"Columns": [
+						{
+							"Name": "test_num",
+							"Width": "10.899%",
+							"VisibleIndex": 0
+						},
+						{
+							"Name": "reccode",
+							"Width": "50%",
+							"VisibleIndex": 1
+						},
+						{
+							"Name": "recid",
+							"Width": "100px",
+							"VisibleIndex": 2
+						}
+					]
+				}
+			],
+			"methods": [
+				{
+					"name": "onAdd",
+					"displayName": "Замещение действий кнопки Добавить",
+					"static": true,
+					"fields": []
+				},
+				{
+					"name": "test_success",
+					"displayName": "Успех",
+					"fields": [],
+					"static": "true"
+				},
+				{
+					"name": "test_error",
+					"displayName": "Ошибка",
+					"fields": []
+				},
+				{
+					"name": "add_method_2",
+					"displayName": "Добавить запись",
+					"static": "true",
+					"fields": [
+						{
+							"name": "reccode",
+							"type": "SysString",
+							"displayName": "Код без тулбара"
+						},
+						{
+							"name": "test_num",
+							"type": "SysInt",
+							"displayName": "Число без тулбара"
+						},
+						{
+							"name": "test_date",
+							"type": "SysDate",
+							"displayName": "Дата без тулбара"
+						}
+					]
+				},
+				{
+					"name": "update_method_2",
+					"displayName": "Обновление записи",
+					"static": "true",
+					"fields": [
+						{
+							"name": "reccode",
+							"type": "SysString",
+							"displayName": "Код без тулбара"
+						},
+						{
+							"name": "test_num",
+							"type": "SysInt",
+							"displayName": "Число без тулбара"
+						},
+						{
+							"name": "test_date",
+							"type": "SysDate",
+							"displayName": "Дата без тулбара"
+						}
+					]
+				},
+				{
+					"name": "delete_method_2",
+					"displayName": "Удаление записи",
+					"static": "true",
+					"fields": []
+				},
+				// {
+				// 	"name": "file_download_2",
+				// 	"displayName": "Скачивание файла",
+				// 	"fields": []
+				// },
+				{
+					"name": "test_method_for_sign_files_in_field_2",
+					"displayName": "Подписание файла",
+					"isPacketSigned": true,
+					"static": "true",
+					"fields": [],
+					"isEnabled": "function() { return true; }"
+				},
+				{
+					"name": "delete_file_2",
+					"displayName": "Удаление файла",
+					"static": "true",
+					"fields": []
+				},
+				{
+					"name": "test_workflow2",
+					"displayName": "Бизнес процесс (подписание в середине)",
+					"isEnabled": "function() { return true }",
+					"fields": [],
+					"static": true,
+					"workflow": [
+						{
+							"name": "generate_files_2",
+							"methodSrc": "server"
+						},
+						{
+							"name": "sign_files",
+							"methodSrc": "client"
+						},
+						{
+							"name": "send_data_file",
+							"methodSrc": "server",
+							"setResultStep": 1
+						},
+						{
+							"name": "sign_files",
+							"methodSrc": "client",
+							"setResultStep": 1
+						}
+					]
+				}
+			],
+			"events": [
+				{
+					"onOpen": "onopen_test_method"
+				}
+			]
+		},
+
+		// Таблица с тулбаром и контекстным меню
+		{
+			"name": "test_toolbar",
+			"displayName": "Тулбар",
+			"description": "Тулбар",
+			"gridToolbar": {
+				"constList": {
+					"test_true": "true",
+					"test_true_bool": true,
+					"test_false": "false",
+					"test_false_bool": false,
+
+					"test_5": "return 5",
+					"test_str": "return \"пять\"",
+
+					"use": "try{return test_5+'use'} catch(ex){return ex}",
+
+					"test_empty": "",
+					"test_null": null,
+					"test_undefined": "undefined",
+
+					"test_server_test": "return invoke_server_function('test_test', {1:1})",
+					"test_server_test2": "return invoke_server_function('test_test2', {1:1})"
+				},
+				"visible": "true",
+				"toolbarButtons": [
+					{
+						"name": "sysEdit",
+						"displayName": "Изменятор",
+						"tooltip": "Редактировать запись",
+						"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+					},
+					{
+						"name": "sysAdd",
+						"displayName": "Добавить запись PreMethod",
+						"tooltip": "Редактировать запись",
+						"actionType": "PreMethod",
+						"object": "test_success"
+					},
+					{
+						"name": "metod_testr",
+						"displayName": "Method",
+						"tooltip": "Редактировать запись",
+						"actionType": "Method",
+						"object": "test_success"
+					},
+					{
+						"name": "actionItem_reestr_vehicles_testmodel",
+						"displayName": "Тестовая 3D модель",
+						"actionType": "Plugin",
+						"object": "testmodel"
+					},
+					{
+						"name": "form_testr3",
+						"displayName": "SubItem",
+						"tooltip": "Редактировать запись",
+						"subItems": [
+							{
+								"name": "metod_testr1",
+								"displayName": "Method",
+								"tooltip": "Редактировать запись",
+								"actionType": "Method",
+								"object": "test_success",
+								"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+							},
+							{
+								"name": "metod_testr2",
+								"displayName": "Method1",
+								"tooltip": "Редактировать запись",
+								"actionType": "Method",
+								"object": "test_success"
+							},
+							{
+								"name": "metod_testr3",
+								"displayName": "Method2",
+								"tooltip": "Редактировать запись",
+								"actionType": "Method",
+								"object": "test_success",
+								"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+							}
+
+						]
+					},
+					{
+						"name": "form_testr",
+						"displayName": "Редактировать(Form)",
+						"tooltip": "Редактировать запись",
+						"actionType": "Form",
+						"object": "42746473-544a-44bb-9bf5-5b936c424766"
+					},
+					{
+						"name": "success",
+						"displayName": "Успех",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_success",
+						"color": "success"
+					},
+					{
+						"name": "add",
+						"displayName": "Метод добавления записи(Form)",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Form",
+						"object": "42746473-544a-44bb-9bf5-5b936c424766",
+						"color": "primary",
+						"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+					},
+					{
+						"name": "update",
+						"displayName": "Редактирование записи (метод)",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "update_method_3",
+						"color": "primary"
+					},
+					// {
+					// 	"name": "delete",
+					// 	"displayName": "Удаление записи",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "sign_file",
+					// 	"color": "primary"
+					// },
+					// {
+					// 	"name": "download_file",
+					// 	"displayName": "Скачивание файла",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "file_download",
+					// 	"color": "danger"
+					// },
+					{
+						"name": "sign_file",
+						"displayName": "Подписание файлов",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_method_for_sign_files_in_field_3",
+						"color": "danger"
+					},
+					{
+						"name": "delete_file",
+						"displayName": "Удаление файла",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "delete_file_3",
+						"color": "danger"
+					},
+					{
+						"name": "workflow_3",
+						"displayName": "Бизнес-процесс 1",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_workflow3",
+						"color": "link"
+					}
+					// {
+					// 	"name": "workflow_2",
+					// 	"displayName": "Бизнес-процесс 2",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "test_workflow2",
+					// 	"color": "link"
+					// }
+				]
+			},
+			"editToolbar": {
+				"constList": {
+					"test_true": "true",
+					"test_true_bool": true,
+					"test_false": "false",
+					"test_false_bool": false,
+					"isFiles": true,
+
+					"test_5": "return 5",
+					"test_str": "return \"пять\"",
+
+					"use": "try{return test_5+'use'} catch(ex){return ex}",
+
+					"test_empty": "",
+					"test_null": null,
+					"test_undefined": "undefined",
+
+					"test_server_test": "return invoke_server_function('test_test', {1:1})",
+					"test_server_test2": "return invoke_server_function('test_test2', {1:1})"
+				},
+				"visible": "true",
+				"toolbarButtons": [
+					{
+						"name": "sysSave",
+						"displayName": "Сохраняйка",
+						"visible": "return isFiles && currentValues.test_num > 3",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "PreMethod",
+						"object": "test_error",
+						"autoSaveType": "off",
+						"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+					},
+					{
+						"name": "actionItem_reestr_vehicles_testmodel",
+						"displayName": "Тестовая 3D модель",
+						"actionType": "Plugin",
+						"object": "testmodel"
+					},
+					{
+						"name": "sysCancel",
+						"displayName": "Отменяйка",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "PreMethod",
+						"object": "test_error",
+						"autoSaveType": "alter"
+					},
+					{
+						"name": "sysDelete",
+						"displayName": "Удаляйка",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "PreMethod",
+						"object": "test_error",
+						"autoSaveType": "off"
+					},
+					{
+						"name": "metod_testr",
+						"displayName": "Method",
+						"tooltip": "Редактировать запись",
+						"actionType": "Method",
+						"object": "test_success",
+						"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+					},
+					{
+						"name": "form_testr",
+						"displayName": "Form",
+						"tooltip": "Редактировать запись",
+						"actionType": "Form",
+						"object": "42746473-544a-44bb-9bf5-5b936c424766"
+					},
+					{
+						"name": "form_testr3",
+						"displayName": "SubItem",
+						"tooltip": "Редактировать запись",
+						"subItems": [
+							{
+								"name": "metod_testr1",
+								"displayName": "Method",
+								"tooltip": "Редактировать запись",
+								"actionType": "Method",
+								"object": "test_success",
+								"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+							},
+							{
+								"name": "metod_testr2",
+								"displayName": "Method1",
+								"tooltip": "Редактировать запись",
+								"actionType": "Method",
+								"object": "test_success"
+							},
+							{
+								"name": "metod_testr3",
+								"displayName": "Method2",
+								"tooltip": "Редактировать запись",
+								"actionType": "Method",
+								"object": "test_success",
+								"style": "{\"color\":\"#aaaaaa\", \"backgroundColor\":\"#bbbbbb\"}"
+							}
+
+						]
+					},
+					{
+						"name": "off",
+						"displayName": "off",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "PreMethod",
+						"object": "test_error",
+						"autoSaveType": "off"
+					},
+					{
+						"name": "alter",
+						"displayName": "alter",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "PreMethod",
+						"object": "test_error",
+						"autoSaveType": "alter"
+					},
+					{
+						"name": "before",
+						"displayName": "before",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "PreMethod",
+						"object": "test_error",
+						"autoSaveType": "before"
+					},
+					{
+						"name": "before-form",
+						"displayName": "before-form",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "Form",
+						"object": "65a7823b-ebe8-4426-a9bf-2a9ad945eb34",
+						"autoSaveType": "before"
+					},
+					{
+						"name": "after-form",
+						"displayName": "after-form",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "Form",
+						"object": "65a7823b-ebe8-4426-a9bf-2a9ad945eb34",
+						"autoSaveType": "after"
+					},
+					{
+						"name": "off-form",
+						"displayName": "off-form",
+						"visible": "true",
+						"enabled": "true",
+						"color": "info",
+						"actionType": "Form",
+						"object": "65a7823b-ebe8-4426-a9bf-2a9ad945eb34",
+						"autoSaveType": "off"
+					},
+					// {
+					// 	"name": "success",
+					// 	"displayName": "Успех",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "test_success",
+					// 	"color": "success"
+					// },
+					{
+						"name": "error",
+						"displayName": "Ошибка",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_error",
+						"color": "success"
+					},
+					{
+						"name": "update",
+						"displayName": "Метод редактирования записи",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "update_method_3",
+						"color": "primary"
+					},
+					{
+						"name": "delete",
+						"displayName": "Удаление записи",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "delete_method_3",
+						"color": "primary"
+					},
+					// {
+					// 	"name": "download_file",
+					// 	"displayName": "Скачивание файла",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "file_download",
+					// 	"color": "danger"
+					// },
+					// {
+					// 	"name": "sign_file",
+					// 	"displayName": "Подписать файл",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "file_sign",
+					// 	"color": "danger"
+					// },
+					{
+						"name": "delete_file",
+						"displayName": "Удаление файла",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "delete_file_3",
+						"color": "danger"
+					}
+					// {
+					// 	"name": "workflow_1",
+					// 	"displayName": "Бизнес-процесс 1",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "test_workflow1",
+					// 	"color": "link"
+					// },
+					// {
+					// 	"name": "workflow_2",
+					// 	"displayName": "Бизнес-процесс 2",
+					// 	"tooltip": "Это подсказка для вызова метода",
+					// 	"visible": "true",
+					// 	"enabled": "true",
+					// 	"icon": "plus",
+					// 	"actionType": "Method",
+					// 	"object": "test_workflow2",
+					// 	"color": "link"
+					// }
+				]
+			},
+			"contextMenu": {
+				"visible": "true",
+				"contextButtons": [
+					{
+						"name": "onEdit",
+						"displayName": "Редакция",
+						"enabled": "return selectedRecords.length == 1",
+						"visible": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "testmethod"
+					},
+					{
+						"name": "onDelete",
+						"displayName": "Удаляция",
+						"enabled": "return selectedRecords.length > 1",
+						"visible": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "testmethod"
+					},
+					{
+						"name": "pressEnter",
+						"enabled": "return selectedRecords.length == 1",
+						"actionType": "Method",
+						"object": "testmethod"
+					},
+					{
+						"name": "pressDelete",
+						"enabled": "return selectedRecords.length == 1"
+					},
+					{
+						"name": "dblClick",
+						"actionType": "Method",
+						"object": "testmethod"
+					},
+					{
+						"name": "success",
+						"displayName": "Успех",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_success",
+						"color": "success"
+					},
+					{
+						"name": "error",
+						"displayName": "Ошибка",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_error",
+						"color": "success"
+					},
+					{
+						"name": "add",
+						"displayName": "Добавить запись (метод)",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "table_grid_add",
+						"color": "primary"
+					},
+					{
+						"name": "update",
+						"displayName": "Метод редактирования записи",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "update_method",
+						"color": "primary"
+					},
+					{
+						"name": "delete",
+						"displayName": "Удаление записи",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "delete_method",
+						"color": "primary"
+					},
+					{
+						"name": "download_file",
+						"displayName": "Скачивание файла",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "file_download",
+						"color": "danger"
+					},
+					{
+						"name": "sign_file",
+						"displayName": "Подписать файл",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "file_sign",
+						"color": "danger"
+					},
+					{
+						"name": "delete_file",
+						"displayName": "Удаление файла",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "file_delete",
+						"color": "danger"
+					},
+					{
+						"name": "workflow_1",
+						"displayName": "Бизнес-процесс 1",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_workflow1",
+						"color": "link"
+					},
+					{
+						"name": "workflow_2",
+						"displayName": "Бизнес-процесс 2",
+						"tooltip": "Это подсказка для вызова метода",
+						"visible": "true",
+						"enabled": "true",
+						"icon": "plus",
+						"actionType": "Method",
+						"object": "test_workflow2",
+						"color": "link"
+					}
+				]
+			},
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "reccode",
+						"default": "a1"
+					},
+					{
+						"name": "test_num"
+					},
+					{
+						"name": "another_field"
+					}
+				]
+			},
+			"fields": [
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код"
+				},
+				{
+					"name": "test_num",
+					"type": "SysInt",
+					"displayName": "Число"
+				},
+				{
+					"name": "test_date",
+					"type": "SysDate",
+					"displayName": "Дата"
+				},
+				{
+					"name": "test_file",
+					"type": "SysFile",
+					"displayName": "Файл"
+				}
+			],
+			"menus": [
+				"methodContextMenu3",
+				"onAddContextMenu"
+			],
+			"methods": [
+				{
+					"name": "test_success",
+					"displayName": "Успех",
+					"fields": [],
+					"static": "true"
+				},
+				{
+					"name": "test_error",
+					"displayName": "Ошибка",
+					"fields": []
+				},
+				{
+					"name": "table_grid_add",
+					"displayName": "Добавить запись в таблицу",
+					"fields": [
+						{
+							"name": "reccode",
+							"type": "SysString",
+							"displayName": "Код без тулбара"
+						},
+						{
+							"name": "test_num",
+							"type": "SysInt",
+							"displayName": "Число без тулбара"
+						},
+						{
+							"name": "test_date",
+							"type": "SysDate",
+							"displayName": "Дата без тулбара"
+						}
+					]
+				},
+				{
+					"name": "update_method_3",
+					"displayName": "Обновление записи",
+					"fields": [
+						{
+							"name": "reccode",
+							"type": "SysString",
+							"displayName": "Код без тулбара"
+						},
+						{
+							"name": "test_num",
+							"type": "SysInt",
+							"displayName": "Число без тулбара"
+						},
+						{
+							"name": "test_date",
+							"type": "SysDate",
+							"displayName": "Дата без тулбара"
+						}
+					]
+				},
+				{
+					"name": "delete_method_3",
+					"displayName": "Удаление записи",
+					"fields": []
+				},
+				// {
+				// 	"name": "file_download_2",
+				// 	"displayName": "Скачивание файла",
+				// 	"fields": []
+				// },
+				{
+					"name": "test_method_for_sign_files_in_field_3",
+					"displayName": "Подписание файла",
+					"isPacketSigned": true,
+					"static": "true",
+					"fields": [],
+					"isEnabled": "function() { return true; }"
+				},
+				{
+					"name": "delete_file_3",
+					"displayName": "Удаление файла",
+					"fields": []
+				},
+				{
+					"name": "test_workflow3",
+					"displayName": "Бизнес процесс (подписание в середине)",
+					"isEnabled": "function() { return true }",
+					"fields": [],
+					"static": true,
+					"workflow": [
+						{
+							"name": "generate_files_3",
+							"methodSrc": "server"
+						},
+						{
+							"name": "sign_files",
+							"methodSrc": "client"
+						},
+						{
+							"name": "send_data_file",
+							"methodSrc": "server",
+							"setResultStep": 1
+						},
+						{
+							"name": "sign_files",
+							"methodSrc": "client",
+							"setResultStep": 1
+						}
+					]
+				}
+			]
+		}
+	],
+	"staticMethods": [
+		{
+			"name": "form_in",
+			"displayName": "Задает начальную информацию форме, только первая страница",
+			"fields": [],
+			"enabled": "function() { return true; }",
+			"isAnonymous": true
+		},
+		{
+			"name": "form_out",
+			"displayName": "Обрабатывает полученную информацию от формы",
+			"fields": [],
+			"enabled": "function() { return true; }",
+			"isAnonymous": false
+		}
+	]
+}
